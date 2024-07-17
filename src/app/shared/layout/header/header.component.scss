@@ -1,0 +1,21 @@
+@import '@/app/shared/styles/styles.scss';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  @include background-text-color($color-secondary, $color-text);
+  border-bottom: 1px solid $color-accent;
+  height: 40px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 128px;
+  width: auto;
+  object-fit: contain;
+}
