@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from '@/app/core/services/auth.service';
 import { Router } from '@angular/router';
+import { NotificationService } from '@/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  private notificationService = inject(NotificationService);
 
   constructor() {
     this.registerForm = this.fb.group({
@@ -30,10 +32,12 @@ export class RegisterComponent {
       this.authService.register(name, email, password, avatar).subscribe({
         next: (response) => {
           console.log('Registration successful', response);
+          this.notificationService.showSuccess('Register successful');
           this.router.navigate(['auth/login']);
         },
         error: (error) => {
           console.error('Registration failed', error);
+          this.notificationService.showSuccess('Register failed');
         }
       });
     }

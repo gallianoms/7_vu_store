@@ -37,8 +37,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/app/shared/styles/styles.scss" 
-             ],
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/app/shared/styles/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -103,8 +104,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/app/shared/styles/styles.scss" 
-             ],
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/app/shared/styles/styles.scss"
+            ],
             "scripts": []
           }
         },

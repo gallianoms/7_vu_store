@@ -1,4 +1,5 @@
 import { AuthService } from '@/app/core/services/auth.service';
+import { NotificationService } from '@/app/shared/services/notification.service';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,6 +16,7 @@ export class LoginComponent {
   private authService =  inject(AuthService);
   private router = inject(Router);
   private fb = inject(FormBuilder);
+  notificationService = inject(NotificationService);
 
   constructor() {
     this.loginForm = this.fb.group({
@@ -31,11 +33,13 @@ export class LoginComponent {
           console.log('Login successful', response);
           if (response.access_token && response.refresh_token) {
             this.authService.saveTokens(response.access_token.toString(), response.refresh_token.toString());
+            this.notificationService.showSuccess('Login successful');
             this.router.navigate(['']);
           }
         },
         error: (error) => {
           console.error('Login failed', error);
+          this.notificationService.showSuccess('Login failed');
         }
       });
     }

@@ -12,6 +12,7 @@ import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -28,6 +29,7 @@ import { SharedModule } from './shared/shared.module';
     provideHttpClient(
       withInterceptors([jwtInterceptor, loadingInterceptor, errorInterceptor]),
     ),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })
