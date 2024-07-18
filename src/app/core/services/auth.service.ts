@@ -11,6 +11,7 @@ import { LocalStorageService } from './local-storage.service';
 export class AuthService {
 
   private apiUrl = `${environment.apiUrlBase}/auth/login`;
+  private apiUrlReg = `${environment.apiUrlBase}/users`;
   private http = inject(HttpClient);
   private localStorageService = inject(LocalStorageService);
 
@@ -39,4 +40,15 @@ export class AuthService {
     this.localStorageService.removeItem('access_token');
     this.localStorageService.removeItem('refresh_token');
   }
+
+  /* user register */
+
+  register(name: string, email: string, password: string, avatar: string): Observable<User> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const body = { name, email, password, avatar };
+    return this.http.post<User>(this.apiUrlReg, body, { headers });
+  }
+
 }
