@@ -41,6 +41,9 @@ export class AuthService {
     this.localStorageService.removeItem('refresh_token');
   }
 
+  logout(): void {
+    this.clearTokens();
+  }
   /* user register */
 
   register(name: string, email: string, password: string, avatar: string): Observable<User> {
