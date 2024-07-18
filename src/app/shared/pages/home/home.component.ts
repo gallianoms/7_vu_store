@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const token = this.authService.getAccessToken();
     if (token) {
-      const userId = this.extractUserIdFromToken(token);
+      const userId = this.userIdFromToken(token);
       this.userService.getUserById(userId).subscribe({
         next: (user: User) => {
           this.user = user;
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private extractUserIdFromToken(token: string): number {
+  private userIdFromToken(token: string): number {
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload.sub;
   }
@@ -40,5 +40,13 @@ export class HomeComponent implements OnInit {
     this.authService.logout();
     this.user = null;
     this.router.navigate(['']);
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['auth/login']);
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['auth/register']);
   }
 }
