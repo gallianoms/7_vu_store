@@ -2,10 +2,10 @@
     <h1>Welcome, {{ user.name }}!</h1>
     <p>Your role is: {{ user.role }}</p>
     <button (click)="logout()">Logout</button>
-  </div>
-  <div *ngIf="!user">
+</div>
+<div *ngIf="!user">
     <p>Bienvenido a la home</p>
     <button (click)="navigateToLogin()">Login</button>
-  <button (click)="navigateToRegister()">Register</button>
-  </div>
+    <button (click)="navigateToRegister()">Register</button>
+</div>
   

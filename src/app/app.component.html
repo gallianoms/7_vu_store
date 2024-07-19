@@ -1,6 +1,7 @@
 <div class="container">
   <app-header />
   <div class="content">
+    <app-loading-overlay *ngIf="loadService.isLoading"></app-loading-overlay>
     <router-outlet />
   </div>
   <app-footer />
