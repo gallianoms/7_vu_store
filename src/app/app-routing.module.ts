@@ -4,6 +4,7 @@ import { HomeComponent } from './shared/pages/home/home.component';
 import { AboutComponent } from './shared/pages/about/about.component';
 import { ErrorComponent } from './shared/pages/error/error.component';
 import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
+import { roleGuard } from './core/guards/role.guard';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
+    canActivate: [roleGuard],
     component: AboutComponent,
   },
   {
