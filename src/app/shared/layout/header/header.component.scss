@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  @include background-text-color($color-secondary, $color-text);
-  border-bottom: 1px solid $color-accent;
+  @include background-text-color($secondary-color, $text-color);
+  border-bottom: 1px solid $accent-color;
   height: 40px;
 }
 

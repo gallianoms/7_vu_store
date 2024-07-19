@@ -5,7 +5,7 @@
   @include center-flex;
   height: 100%;
   text-align: center;
-  color: $color-text;
+  color: $text-color;
 
 }
 .error-container h1 {
@@ -23,10 +23,10 @@
   display: inline-block;
   padding: 10px 20px;
   color: white;
-  background-color: $color-accent;
+  background-color: $accent-color;
   text-decoration: none;
   border-radius: 5px;
 }
 .error-container a:hover {
-  background-color: rgba($color-accent, $alpha: .8);
+  background-color: rgba($accent-color, $alpha: .8);
 }

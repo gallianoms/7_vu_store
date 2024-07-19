@@ -2,10 +2,10 @@
 
 .footer {
   @include center-flex;
-  @include background-text-color($color-secondary, $color-accent);
+  @include background-text-color($secondary-color, $accent-color);
 
   height: 60px;
-  border-top: 1px solid $color-text;
+  border-top: 1px solid $text-color;
 }
 
 .footer-content {
