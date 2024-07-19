@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
   user: User | null = null;
@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
         next: (user: User) => {
           this.user = user;
         },
-        error: (error) => {
+        error: error => {
           console.error('Error fetching user data', error);
-        }
+        },
       });
     }
   }
