@@ -1,0 +1,32 @@
+@import '@/app/shared/styles/styles.scss';
+
+
+.error-container {
+  @include center-flex;
+  height: 100%;
+  text-align: center;
+  color: $color-text;
+
+}
+.error-container h1 {
+  font-size: 6em;
+  margin: 0;
+}
+.error-container h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+.error-container p {
+  margin: 20px 0;
+}
+.error-container a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: $color-accent;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.error-container a:hover {
+  background-color: rgba($color-accent, $alpha: .8);
+}
