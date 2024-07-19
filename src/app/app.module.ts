@@ -9,9 +9,12 @@ import { ErrorComponent } from './shared/pages/error/error.component';
 import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
-import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { loadInterceptor } from './core/interceptors/loading.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+
 
 @NgModule({
   declarations: [
@@ -24,9 +27,13 @@ import { SharedModule } from './shared/shared.module';
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [
     provideHttpClient(
-      withInterceptors([jwtInterceptor, loadingInterceptor, errorInterceptor]),
+      withInterceptors([jwtInterceptor, loadInterceptor, errorInterceptor]),
     ),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
+

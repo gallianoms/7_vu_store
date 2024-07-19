@@ -6,10 +6,11 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { SearchComponent } from './components/search/search.component';
 import { TableComponent } from './components/table/table.component';
+import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 
 @NgModule({
-  declarations: [BtnBackComponent, HeaderComponent, FooterComponent, CardComponent, SearchComponent, TableComponent],
+  declarations: [BtnBackComponent, HeaderComponent, FooterComponent, CardComponent, SearchComponent, TableComponent, LoadingOverlayComponent],
   imports: [CommonModule],
-  exports: [BtnBackComponent, HeaderComponent, FooterComponent],
+  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent],
 })
 export class SharedModule {}

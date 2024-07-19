@@ -4,7 +4,7 @@ import { HomeComponent } from './shared/pages/home/home.component';
 import { AboutComponent } from './shared/pages/about/about.component';
 import { ErrorComponent } from './shared/pages/error/error.component';
 import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
-import { UserListComponent } from './features/user/pages/user-list/user-list.component';
+
 
 const routes: Routes = [
   {
@@ -14,22 +14,22 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () =>
-      import('./features/auth/auth-routing.module').then(
-        m => m.AuthRoutingModule,
+      import('./features/auth/auth.module').then(
+        m => m.AuthModule,
       ),
   },
   {
     path: 'products',
     loadChildren: () =>
-      import('./features/product/product-routing.module').then(
-        m => m.ProductRoutingModule,
+      import('./features/product/product.module').then(
+        m => m.ProductModule,
       ),
   },
   {
     path: 'users',
     loadChildren: () =>
-      import('./features/user/user-routing.module').then(
-        m => m.UserRoutingModule,
+      import('./features/user/user.module').then(
+        m => m.UserModule,
       ),
   },
   {

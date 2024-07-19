@@ -18,7 +18,7 @@ export class GenericService<T> implements AbstractGeneric<T> {
 
   getOne(endpoint: string, id: string | number): Observable<T> {
     return this.http
-      .get<T[]>(environment.API_URL + endpoint + id)
+      .get<T>(environment.API_URL + endpoint + id)
       .pipe(catchError(this.handleError));
   }
 
