@@ -4,6 +4,7 @@ import { AuthService } from '@/app/core/services/auth.service';
 import { User } from '@/app/core/interfaces/user/user.interface';
 import { UserService } from '@/app/core/services/userIdRol.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
