@@ -13,6 +13,7 @@ import { loadInterceptor } from './core/interceptors/loading.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -24,7 +25,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ErrorComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, RouterLink],
   providers: [
     provideHttpClient(
       withInterceptors([jwtInterceptor, loadInterceptor, errorInterceptor]),

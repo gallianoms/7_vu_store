@@ -13,6 +13,10 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       if (e.error instanceof ErrorEvent) {
         errorMessage = `Client Error: ${e.error.message}`;
       } else {
+        console.log(req);
+        if (req.url.includes('auth')) return throwError(() => e);
+        if (req.url.includes('users') && req.method === 'POST')
+          return throwError(() => e);
         errorMessage = `Server Error: ${e.status} ${e.statusText}`;
       }
 
