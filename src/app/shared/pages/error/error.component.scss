@@ -1,0 +1,9 @@
+@import '@/app/shared/styles/styles.scss';
+
+.error-container {
+  @include center-flex;
+  height: 100%;;
+  flex-direction: column;
+  background-color: $error-background-color;
+  color: $error-text-color;
+}
