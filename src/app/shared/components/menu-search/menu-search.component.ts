@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-search',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './menu-search.component.scss'
 })
 export class MenuSearchComponent {
+  @Input() categories: string[] = [];
+  @Output() categorySelected = new EventEmitter<string>();
 
+  selectCategory(category: string): void {
+    this.categorySelected.emit(category);
+  }
 }
