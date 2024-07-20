@@ -2,7 +2,7 @@
     <img [src]="product?.images?.[0] | notImgFound" alt="Product Image" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{ product?.title }}</h5>
-      <p class="card-text">{{ product?.description }} <span class="read-more">Read More</span></p>
+      <p class="card-text">{{ product?.description ?? '' | truncate }} <span class="read-more">Read More</span></p>
       <span class="badge bg-secondary">{{ product?.category?.name }}</span>
       <p class="card-price">$ {{ product?.price }}</p>
       <button (click)="addToCart()" class="btn btn-primary">Add To Cart</button>

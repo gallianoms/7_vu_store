@@ -1,10 +1,19 @@
 <div class="search-container">
   <app-search (searchEvent)="handleSearch($event)"></app-search>
 </div>
+
 <div class="product-container">
   <ng-container *ngIf="filteredProducts$ | async as products">
-    <ng-container *ngFor="let product of products; trackBy: trackByProductId">
-      <app-card [product]="product" (addToCartEvent)="handleAddToCart(product.id)"></app-card>
+    <ng-container *ngIf="products.length > 0; else noProductsTemplate">
+      <ng-container *ngFor="let product of products; trackBy: trackByProductId">
+        <app-card [product]="product" (addToCartEvent)="handleAddToCart(product.id)"></app-card>
+      </ng-container>
     </ng-container>
   </ng-container>
 </div>
+
+<ng-template #noProductsTemplate>
+  <div class="no-products">
+    No products found matching your search criteria.
+  </div>
+</ng-template>

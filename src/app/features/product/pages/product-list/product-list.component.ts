@@ -26,7 +26,7 @@ handleAddToCart(productId: number) {
 handleSearch(term: string): void {
   this.filteredProducts$ = this.products$.pipe(
     map(products => products.filter(product => 
-      product.category?.name?.toLowerCase().includes(term.toLowerCase())
+      product.title?.toLowerCase().includes(term.toLowerCase())
     ))
   );
 }
