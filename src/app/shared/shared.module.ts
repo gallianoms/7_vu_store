@@ -14,6 +14,6 @@ import { NotImgFoundPipe } from './pipes/not-img-found.pipe';
     NotImgFoundPipe
   ],
   imports: [CommonModule],
-  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe],
+  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe, SearchComponent],
 })
 export class SharedModule {}

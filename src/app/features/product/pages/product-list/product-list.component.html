@@ -1,8 +1,10 @@
+<div class="search-container">
+  <app-search (searchEvent)="handleSearch($event)"></app-search>
+</div>
 <div class="product-container">
-@if(products$ | async; as products)
-  {
-    @for (product of products; track product.id) {   
-        <app-card [product]="product" (addToCartEvent)="handleAddToCart(product.id)"></app-card>
-    }    
-  }
+  <ng-container *ngIf="filteredProducts$ | async as products">
+    <ng-container *ngFor="let product of products; trackBy: trackByProductId">
+      <app-card [product]="product" (addToCartEvent)="handleAddToCart(product.id)"></app-card>
+    </ng-container>
+  </ng-container>
 </div>
