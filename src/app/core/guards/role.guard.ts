@@ -1,8 +1,9 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { LocalStorageService } from '../services/local-storage.service';
 
-export const roleGuard: CanActivateFn = (route, state) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const roleGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const localStorage = inject(LocalStorageService);
   const router = inject(Router);
 

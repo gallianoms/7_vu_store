@@ -18,6 +18,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     if (this.users.length > 0) {
       this.usersWithoutAvatar = this.users.map(user => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { avatar, ...rest } = user;
         return rest;
       });

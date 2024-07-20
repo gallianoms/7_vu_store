@@ -55,7 +55,7 @@ handleCategorySelection(category: string): void {
   }
 }
 
-trackByProductId(index: number, product: any): number {
+trackByProductId(index: number, product: Product): number {
   return product.id;
 }
 
