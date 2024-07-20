@@ -1,11 +1,17 @@
-<div class="card">
-    <img [src]="product?.images?.[0] | notImgFound" alt="Product Image" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{ product?.title }}</h5>
-      <p class="card-text">{{ product?.description ?? '' | truncate }} <span class="read-more">Read More</span></p>
-      <span class="badge bg-secondary">{{ product?.category?.name }}</span>
-      <p class="card-price">$ {{ product?.price }}</p>
-      <button (click)="addToCart()" class="btn btn-primary">Add To Cart</button>
-    </div>
+<div class="card" *ngIf="product" [ngClass]="{ 'detail-view': isDetailView }">
+  <app-btn-back *ngIf="isDetailView" class="back-button"></app-btn-back>
+  <div *ngIf="isDetailView" class="detail-images">
+    <img *ngFor="let img of product.images" [src]="img | notImgFound" alt="Product Image" class="detail-image">
+  </div>
+  <img *ngIf="!isDetailView" [src]="product.images[0] | notImgFound" alt="Product Image" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <p class="card-text">
+      {{ isDetailView ? product.description : (product.description | truncate) }}
+      <span *ngIf="!isDetailView" class="read-more" (click)="goToDetails()">Read More</span>
+    </p>
+    <span class="badge bg-secondary">{{ product.category.name }}</span>
+    <p class="card-price">$ {{ product.price }}</p>
+    <button (click)="addToCart()" class="btn btn-primary">Add To Cart</button>
+  </div>
 </div>
-  

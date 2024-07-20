@@ -1,0 +1,26 @@
+.btn-back {
+    background-color: #1e4b7a;
+    border-color: #1e4b7a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      background-color: #003580;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    }
+}

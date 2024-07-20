@@ -1,1 +1,4 @@
-<p>product-detail works!</p>
+<div *ngIf="product">
+    <app-card [product]="product" [isDetailView]="true" (addToCartEvent)="handleAddToCart(product.id)"></app-card>
+</div>
+  
