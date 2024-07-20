@@ -6,6 +6,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductCreateComponent } from './pages/product-create/product-create.component';
 import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { SharedModule } from '@/app/shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProductEditComponent } from './pages/product-edit/product-edit.componen
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    SharedModule
   ]
 })
 export class ProductModule { }

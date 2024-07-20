@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { Product } from '@/app/core/interfaces/product/product.interface';
+import { GenericService } from '@/app/core/services/generic.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
+private genericService = inject(GenericService);
+products$!: Observable<Product[]>
+
+ngOnInit(): void {
+  this.products$ = this.genericService.getAll('products');
+
+  this.products$.subscribe(products => {
+    console.log(products);
+  });
+}
+
+handleAddToCart(productId: number) {
+  console.log(`Product with id ${productId} added to cart.`);
+}
 }

@@ -7,10 +7,13 @@ import { CardComponent } from './components/card/card.component';
 import { SearchComponent } from './components/search/search.component';
 import { TableComponent } from './components/table/table.component';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
+import { NotImgFoundPipe } from './pipes/not-img-found.pipe';
 
 @NgModule({
-  declarations: [BtnBackComponent, HeaderComponent, FooterComponent, CardComponent, SearchComponent, TableComponent, LoadingOverlayComponent],
+  declarations: [BtnBackComponent, HeaderComponent, FooterComponent, CardComponent, SearchComponent, TableComponent, LoadingOverlayComponent,
+    NotImgFoundPipe
+  ],
   imports: [CommonModule],
-  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent],
+  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe],
 })
 export class SharedModule {}
