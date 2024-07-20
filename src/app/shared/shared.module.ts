@@ -16,6 +16,6 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     NotImgFoundPipe, TruncatePipe, MenuSearchComponent
   ],
   imports: [CommonModule],
-  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe, SearchComponent, MenuSearchComponent],
+  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe, SearchComponent, MenuSearchComponent, TableComponent],
 })
 export class SharedModule {}

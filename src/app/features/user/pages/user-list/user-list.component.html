@@ -1,1 +1,3 @@
-<p>user-list works!</p>
+@if (users$ | async; as users) {
+<app-table [users]="users" />
+}
