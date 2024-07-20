@@ -1,1 +1,24 @@
-<p>table works!</p>
+<table>
+  <thead>
+    <tr>
+      @for (column of columns; track $index) {
+      <th>
+        {{ column }}
+      </th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of usersWithoutAvatar; track user.id) {
+    <tr>
+      @for (column of columns; track $index) {
+        @if (column === 'creationAt' || column === 'updatedAt') {
+          <td>{{user[column] | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+        } @else {
+          <td>{{ user[column] }}</td>
+        }
+      }
+    </tr>
+    }
+  </tbody>
+</table>

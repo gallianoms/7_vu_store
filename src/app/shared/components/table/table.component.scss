@@ -1,0 +1,28 @@
+@import '@/app/shared/styles/styles.scss';
+
+table {
+  width: 100%;
+  border-collapse: collapse; 
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+th {
+  background-color: $primary-color;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
