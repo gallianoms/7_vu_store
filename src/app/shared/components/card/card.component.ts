@@ -9,8 +9,10 @@ import { Router } from '@angular/router';
 })
 export class CardComponent {
 @Input() product?:Product;
-@Output() addToCartEvent = new EventEmitter<Product>();
 @Input() isDetailView: boolean = false;
+@Output() addToCartEvent = new EventEmitter<Product>();
+@Output() editProductEvent = new EventEmitter<Product>();
+@Output() deleteProductEvent = new EventEmitter<Product>();
 
 private router = inject(Router);
 
@@ -21,6 +23,18 @@ addToCart() {
 goToDetails(): void {
   if (this.product) {
     this.router.navigate(['/products', this.product.id]);
+  }
+}
+
+editProduct(): void {
+  if (this.product) {
+    this.editProductEvent.emit(this.product);
+  }
+}
+
+deleteProduct(): void {
+  if (this.product) {
+    this.deleteProductEvent.emit(this.product);
   }
 }
 }

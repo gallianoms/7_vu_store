@@ -43,11 +43,43 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
+    .btn {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-size: 0.875rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      cursor: pointer;
 
-    .btn-primary {
-      background-color: #6200ea;
-      border-color: #6200ea;
-      color: #fff;
+      &.btn-primary {
+        background-color: #6200ea;
+        border:  #6200ea;
+        color: #fff;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+      &.btn-warning {
+        background-color: #ffc107;
+        border: none;
+        color: #212529;
+
+        &:hover {
+          background-color: #e0a800;
+        }
+      }
+
+      &.btn-danger {
+        background-color: #dc3545;
+        border: none;
+        color: #fff;
+
+        &:hover {
+          background-color: #c82333;
+        }
+      }
     }
   }
 

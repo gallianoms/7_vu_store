@@ -13,5 +13,7 @@
     <span class="badge bg-secondary">{{ product.category.name }}</span>
     <p class="card-price">$ {{ product.price }}</p>
     <button (click)="addToCart()" class="btn btn-primary">Add To Cart</button>
-  </div>
+    <hr>
+    <button *ngIf="!isDetailView" (click)="editProduct()" class="btn btn-warning">Edit</button>
+    <button *ngIf="!isDetailView" (click)="deleteProduct()" class="btn btn-danger">Delete</button>
 </div>

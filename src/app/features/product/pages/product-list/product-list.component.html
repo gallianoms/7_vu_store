@@ -7,14 +7,18 @@
     <ng-container *ngIf="filteredProducts$ | async as products">
       <ng-container *ngIf="products.length > 0; else noProductsTemplate">
         <ng-container *ngFor="let product of products; trackBy: trackByProductId">
-          <app-card [product]="product" (addToCartEvent)="handleAddToCart(product.id)"></app-card>
+          <app-card 
+            [product]="product" 
+            (addToCartEvent)="handleAddToCart(product.id)" 
+            (editProductEvent)="handleEditProduct($event)" 
+            (deleteProductEvent)="handleDeleteProduct($event)">
+          </app-card>
         </ng-container>
       </ng-container>
     </ng-container>
   </div>
   <div class="category-container">
-   <app-menu-search [categories]="categories" (categorySelected)="handleCategorySelection($event)"></app-menu-search> 
-
+    <app-menu-search [categories]="categories" (categorySelected)="handleCategorySelection($event)"></app-menu-search> 
   </div>
 </div>
 
