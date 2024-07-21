@@ -39,7 +39,7 @@ export class LoginComponent {
         },
         error: (error) => {
           console.error('Login failed', error);
-          this.notificationService.showSuccess('Login failed');
+          this.notificationService.showError('Login failed');
         }
       });
     }

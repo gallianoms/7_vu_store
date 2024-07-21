@@ -28,6 +28,8 @@
         <input type="text" id="avatar" formControlName="avatar" required>
         <div *ngIf="registerForm.get('avatar')?.invalid && registerForm.get('avatar')?.touched">
           <small *ngIf="registerForm.get('avatar')?.errors?.['required']">Avatar URL is required</small>
+          <small *ngIf="registerForm.get('avatar')?.errors?.['invalidUrl']">Url is invalid</small>
+          <small *ngIf="registerForm.get('avatar')?.errors?.['invalidImage']">Url does not point to a valid image.</small>
         </div>
       </div>
       <button type="submit" [disabled]="registerForm.invalid">Register</button>

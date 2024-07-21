@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from '@/app/core/services/auth.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '@/app/shared/services/notification.service';
+import { UrlImageValidator } from '@/app/shared/utils/urlImg-validator';
 
 @Component({
   selector: 'app-register',
@@ -16,13 +17,14 @@ export class RegisterComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private notificationService = inject(NotificationService);
+  private urlImageValidator = inject(UrlImageValidator);
 
   constructor() {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      avatar: ['', Validators.required]
+      avatar: ['', [Validators.required], [this.urlImageValidator.validate()]]
     });
   }
 
@@ -37,7 +39,7 @@ export class RegisterComponent {
         },
         error: (error) => {
           console.error('Registration failed', error);
-          this.notificationService.showSuccess('Register failed');
+          this.notificationService.showError('Register failed');
         }
       });
     }
