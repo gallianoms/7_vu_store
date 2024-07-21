@@ -4,6 +4,7 @@ import { Product } from '@/app/core/interfaces/product/product.interface';
 import { GenericService } from '@/app/core/services/generic.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '@/environments/environment.development';
 
 @Component({
   selector: 'app-product-list',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   
+  apiUrl = environment.apiUrlBase;
   private allProducts: Product[] = [];
   private productSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   products$: Observable<Product[]> = this.productSubject.asObservable();
@@ -43,7 +45,7 @@ export class ProductListComponent implements OnInit {
   }
 
   handleDeleteProduct(product: Product) {
-    this.http.delete(`https://api.escuelajs.co/api/v1/products/${product.id}`)
+    this.http.delete(`${this.apiUrl}/products/${product.id}`)
       .subscribe(() => {
         this.allProducts = this.allProducts.filter(p => p.id !== product.id);
         this.productSubject.next(this.allProducts);
@@ -83,4 +85,5 @@ export class ProductListComponent implements OnInit {
   trackByProductId(index: number, product: Product): number {
     return product.id;
   }
+
 }

@@ -10,12 +10,15 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
 import { NotImgFoundPipe } from './pipes/not-img-found.pipe';
 import { MenuSearchComponent } from './components/menu-search/menu-search.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { CreateProductButtonComponent } from './components/create-product-button/create-product-button.component';
 
 @NgModule({
   declarations: [BtnBackComponent, HeaderComponent, FooterComponent, CardComponent, SearchComponent, TableComponent, LoadingOverlayComponent,
-    NotImgFoundPipe, TruncatePipe, MenuSearchComponent
+    NotImgFoundPipe, TruncatePipe, MenuSearchComponent, CreateProductButtonComponent
   ],
   imports: [CommonModule],
-  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe, SearchComponent, MenuSearchComponent, TableComponent],
+  exports: [BtnBackComponent, HeaderComponent, FooterComponent, LoadingOverlayComponent, CardComponent, NotImgFoundPipe, SearchComponent, MenuSearchComponent, TableComponent,
+    CreateProductButtonComponent
+  ],
 })
 export class SharedModule {}

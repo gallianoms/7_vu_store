@@ -1,1 +1,43 @@
-<p>product-create works!</p>
+<div class="create-container">
+  <h2>Create Product</h2>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="create-form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" formControlName="title" class="form-control" placeholder="Enter product title" />
+      <div *ngIf="createForm.get('title')?.invalid && (createForm.get('title')?.dirty || createForm.get('title')?.touched)" class="error-message">
+        Title is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" formControlName="price" type="number" class="form-control" placeholder="Enter product price" />
+      <div *ngIf="createForm.get('price')?.invalid && (createForm.get('price')?.dirty || createForm.get('price')?.touched)" class="error-message">
+        Price is required and must be a positive number.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control" placeholder="Enter product description"></textarea>
+      <div *ngIf="createForm.get('description')?.invalid && (createForm.get('description')?.dirty || createForm.get('description')?.touched)" class="error-message">
+        Description is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" formControlName="category" class="form-control">
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+      <div *ngIf="createForm.get('category')?.invalid && (createForm.get('category')?.dirty || createForm.get('category')?.touched)" class="error-message">
+        Category is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input id="image" formControlName="image" class="form-control" placeholder="Enter image URL" />
+      <div *ngIf="createForm.get('image')?.invalid && (createForm.get('image')?.dirty || createForm.get('image')?.touched)" class="error-message">
+        Image URL is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid">Create</button>
+  </form>
+</div>
