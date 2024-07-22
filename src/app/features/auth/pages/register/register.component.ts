@@ -24,7 +24,7 @@ export class RegisterComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      avatar: ['', [Validators.required], [this.urlImageValidator.validate()]]
+      avatar: ['', Validators.required]
     });
   }
 
