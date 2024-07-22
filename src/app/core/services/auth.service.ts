@@ -42,7 +42,8 @@ export class AuthService {
   }
 
   logout(): void {
-    this.clearTokens();
+    //this.clearTokens();
+    localStorage.clear();
   }
   /* user register */
 
